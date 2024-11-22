@@ -1,7 +1,7 @@
 ﻿using System.CommandLine;
 using PreProcessor;
 
-var descriptionSourceArgument = new Argument<string>("description-source") {
+var descriptionSourceArgument = new Option<string>("--source", () => "https://aka.ms/graph/v1.0/openapi.yaml", "The path or URL to the file containing the description of the API.") {
 	Description = "The path or URL to the file containing the description of the API.",
 	Arity = ArgumentArity.ExactlyOne,
 };
@@ -16,6 +16,6 @@ var rootCommand = new RootCommand() {
 };
 rootCommand.Handler = new RootCommandHandler() {
 	DescriptionSource = descriptionSourceArgument,
-	OutputPath = outputPathOption,
+	OutputPathOption = outputPathOption,
 };
 return await rootCommand.InvokeAsync(args);
