@@ -10,6 +10,7 @@ var descriptionSourceArgument = new Option<string>("--source", () => "https://ak
 	Description = "The path or URL to the file containing the description of the API.",
 	Arity = ArgumentArity.ExactlyOne,
 };
+descriptionSourceArgument.AddAlias("-s");
 var outputPathOption = new Option<string>("--output-path", () => $"{pathPrefix}output.yaml", "The path to the output file.") {
 	Description = "The path to the output file.",
 	Arity = ArgumentArity.ExactlyOne,
